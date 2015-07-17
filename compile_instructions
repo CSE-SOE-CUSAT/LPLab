@@ -1,0 +1,12 @@
+Method 1
+lex pgm.l>pgm.c
+gcc pgm.c -o outputfilename
+./outputfilename [command line args] 		//[] indicates optional
+
+Method 2:
+
+lex pgm.l
+gcc lex.yy.c -o outputfilename
+./outputfilename [command line args]            //[] indicates optional
+
+If output file name is not provided, the default output file is named a.out
