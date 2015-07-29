@@ -16,16 +16,16 @@ int main (int argc, char *argv[]){
 		}
 		else{
 		flag =0;
-		printf("%s\n","wrong string");
-		break;}	
+		printf("%s\n","Invalid string");
+		return;}	
 	}
 	n =strlen(s);
-	
+		
 	if(s[n-1]=='b'&& s[n-2]=='b'&& s[n-3]=='a' && flag==1){
-		printf("%s\n","Matched");
+		printf("%s\n","Valid string");
 	}
 	 else{
-		 printf("%s\n","wrong string");
+		 printf("%s\n","Invalid string");
 	 }
 	 	
 

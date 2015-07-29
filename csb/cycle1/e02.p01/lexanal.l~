@@ -1,0 +1,39 @@
+keyword "int"|"while"|"for"|"float"|"return"|"main"|"if"|"else"|"printf"|"break"|"double"|"long"|"char"|"include"|"scanf"|"switch"|"go"
+id [a-zA-Z][a-zA-Z0-9]*
+digit [0-9]+
+float [0-9]+"."[0-9]+
+operator "+"|"-"|"*"|"/"|"="|"=="|"!="|">"|"<"|">="|"<="|"%"
+err [0-9][a-zA-Z0-9]*
+%{
+#include<stdio.h>
+char output[100]|;
+%}
+%%
+{digit} { sprintf(output,"%sIntegers ",output); }
+{float} { sprintf(output,"%sFloating number ",output); }
+{keyword} { sprintf(output,"%sKeyword ",output); }
+{id} { sprintf(output,"%sIdentifier ",output); }
+{operator} { sprintf(output,"%sOperator ",output); }
+{err} { sprintf(output,"%sInvalid ",output); }
+[ \t\n{}();:,]+ { sprintf(output,"%sLexeme ",output); }
+%%
+
+int yywrap(void)
+{
+ return 1;
+}
+int main(int argc,char *argv[]) {
+ char inp[20];
+    if(argc==1){
+	printf("No file provided\n");
+	return;
+	}
+	else{
+    yyin=fopen(argv[1],"r");
+    yylex();
+    printf(" %s\n",output);
+    
+}
+return;
+}
+
