@@ -21,13 +21,26 @@ int count4=0 ;
 int count5=0;
 int count6=0;
 int count7=0;
-
+char* token;
+char* st;
+int flag=0;
+char delim[]=" ";
 %}
 %%
 {digit} { sprintf(doutput,"%s %s ",doutput,yytext);count1++; }
 {float} { sprintf(foutput,"%s %s ",foutput,yytext);count2++; }
 {keyword} { sprintf(koutput,"%s %s ",koutput,yytext);count3++; }
-{id} {if(strcmp(idoutput,yytext)){}else{ sprintf(idoutput,"%s %s ",idoutput,yytext);count4++;} }
+{id} {st=idoutput;
+        while(1){token=strtok(st,delim);
+			st=NULL;
+		    if(token==NULL)break;
+		printf(token);
+	       	if(strcmp(token,yytext)==0)
+			{
+                flag=1;break;}
+			}
+            if(flag==1){}
+			else{ sprintf(idoutput,"%s %s ",idoutput,yytext);count4++;} }
 {operator} { sprintf(opoutput,"%s %s ",opoutput,yytext);count5++; }
 {err} { sprintf(invoutput,"%s %s ",invoutput,yytext);count6++; }
 [\n{(;:,]+ { sprintf(loutput,"%s %s ",loutput,yytext);count7++; }

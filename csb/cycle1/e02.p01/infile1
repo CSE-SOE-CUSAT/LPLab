@@ -1,3 +1,4 @@
-int a;
 while(a>2){
-c=c+n;}
+cmp=cmp+n;
+c=0;
+}

@@ -6,6 +6,7 @@ operator "+"|"-"|"*"|"/"|"="|"=="|"!="|">"|"<"|">="|"<="|"%"
 err [0-9][a-zA-Z0-9]*
 %{
 #include<stdio.h>
+#include<string.h>
 char doutput[100];
 char foutput[100];
 char koutput[100];
@@ -13,15 +14,24 @@ char idoutput[100];
 char opoutput[100];
 char invoutput[100];
 char loutput[100];
+int count1=0;
+int count2=0;
+int count3=0;
+int count4=0 ;
+int count5=0;
+int count6=0;
+int count7=0;
+
 %}
 %%
-{digit} { sprintf(doutput,"%s %s ",doutput,yytext); }
-{float} { sprintf(foutput,"%s %s ",foutput,yytext); }
-{keyword} { sprintf(koutput,"%s %s ",koutput,yytext); }
-{id} {if(strstr(idoutput,yytext)){}else sprintf(idoutput,"%s %s ",idoutput,yytext); }
-{operator} { sprintf(opoutput,"%s %s ",opoutput,yytext); }
-{err} { sprintf(invoutput,"%s %s ",invoutput,yytext); }
-[ \t\n{}();:,]+ { sprintf(loutput,"%s %s ",loutput,yytext); }
+{digit} { sprintf(doutput,"%s %s ",doutput,yytext);count1++; }
+{float} { sprintf(foutput,"%s %s ",foutput,yytext);count2++; }
+{keyword} { sprintf(koutput,"%s %s ",koutput,yytext);count3++; }
+{id} {if(strstr(idoutput,yytext)){}else{ sprintf(idoutput,"%s %s ",idoutput,yytext);count4++;} }
+{operator} { sprintf(opoutput,"%s %s ",opoutput,yytext);count5++; }
+{err} { sprintf(invoutput,"%s %s ",invoutput,yytext);count6++; }
+[\n{(;:,]+ { sprintf(loutput,"%s %s ",loutput,yytext);count7++; }
+[\t})]+ { sprintf(loutput,"%s %s ",loutput,yytext);count7++; }
 %%
 
 int yywrap(void)
@@ -37,21 +47,27 @@ int main(int argc,char *argv[]) {
 	else{
     yyin=fopen(argv[1],"r");
     yylex();
-    if(strlen(doutput))            
-    printf("Integers are %s\n",doutput);
-    if(strlen(foutput))
-    printf("Floats are %s\n",foutput);
-    if(strlen(koutput))
-    printf("Keywords are %s\n",koutput);
-    if(strlen(idoutput))
-    printf("Identifiers are %s\n",idoutput);
-    if(strlen(opoutput))
-    printf("Operators are %s\n",opoutput);
-    if(strlen(invoutput))
-    printf("Invalid identifiers are %s\n",invoutput);
-    if(strlen(loutput))
-    printf("Lexemes are %s\n",loutput);
-    
+    if(strlen(doutput)) {
+    printf("\nNumbers are: %s\n",doutput);
+    printf("Number of numbers: %d\n",(int)count1);}
+    if(strlen(foutput)){
+    printf("\nFloats are: %s\n",foutput);
+	printf("Number of floats: %d\n",count2);}
+    if(strlen(koutput)){
+    printf("\nKeywords are: %s\n",koutput);
+	printf("Number of keywords: %d\n",(int)count3);}
+    if(strlen(idoutput)){
+    printf("\nIdentifiers are: %s\n",idoutput);
+	printf("Number of Identifiers:%d\n",count4);}
+    if(strlen(opoutput)){
+    printf("\nOperators are: %s\n",opoutput);
+	printf("Number of operators:%d\n",count5);}
+   if(strlen(invoutput)){
+    printf("\nInvalid identifiers are: %s\n",invoutput);
+	printf("Number of invalid identifiers:%d\n",count6);}
+    if(strlen(loutput)){
+    printf("\nLexemes are: %s\n",loutput);
+	printf("Number of lexemes:%d\n",count7);}    
 }
 return;
 }
