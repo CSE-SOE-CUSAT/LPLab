@@ -1,6 +1,3 @@
-//Tanmay Kumar Pandey
-//exp 2
-//12130083
 letter1[a]
 letter2[b]
 %{

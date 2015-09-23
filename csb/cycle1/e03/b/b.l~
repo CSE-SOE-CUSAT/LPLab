@@ -1,14 +1,11 @@
-//Tanmay Kumar Pandey
-//exp 2
-//12130083
-letter1[a]
-letter2[b]
+digit1[0]
+digit2[1]
 %{
 #include<stdio.h>
 int count=0;
 %}
 %%
-{letter1}{letter1}({letter1}|{letter2})*{letter2}{letter2} count=1;
+({digit1}|{digit2})*{digit1}{digit1}{digit1}({digit1}|{digit2})* count=1;
 %%
 int yywrap(void)
 {
@@ -24,6 +21,7 @@ printf("Invalid String\n");
 return 0;
 fclose(yyin);
 }
+
 
 
 

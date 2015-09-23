@@ -1,6 +1,3 @@
-//Tanmay Kumar Pandey
-//exp 1
-//12130083
 #include<stdio.h>
 #include<string.h>
 int main(int argc, char *argv[])
