@@ -1,16 +1,16 @@
 %{
 #include <stdio.h>
-#include "y.tab"
+#include "y.tab.h"
 %}
 number        [0-9]+
-flot         [0-9]*"."[0-9]+
+float         [0-9]*"."[0-9]+
 identifier    [a-zA-Z][a-zA-Z0-9]*
-errr     [0-9][a-zA-Z0-9]*
+err     [0-9][a-zA-Z0-9]*
 %%
 {number} {    return number;    }
-{flot} {    return number;    }
+{float} {    return number;    }
 {identifier} {    return identifier;    }
-{errr} {    return err; }
+{err} {    return err; }
 [ \t]+
 \n  {    return(0); }
 .    {    return (int) yytext[0];}

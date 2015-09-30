@@ -62,10 +62,10 @@
 
 
 /* Copy the first part of user declarations.  */
-#line 1 "ari_exp.y" /* yacc.c:339  */
+#line 1 "arithmatic.y" /* yacc.c:339  */
 
-#include<stdio.h>
-int flag=0;
+#include <stdio.h>
+int f=0;
 
 #line 71 "y.tab.c" /* yacc.c:339  */
 
@@ -102,13 +102,13 @@ extern int yydebug;
 # define YYTOKENTYPE
   enum yytokentype
   {
-    num = 258,
+    number = 258,
     identifier = 259,
     err = 260
   };
 #endif
 /* Tokens.  */
-#define num 258
+#define number 258
 #define identifier 259
 #define err 260
 
@@ -436,8 +436,8 @@ static const yytype_uint8 yyrline[] =
    First, the terminals, then, starting at YYNTOKENS, nonterminals.  */
 static const char *const yytname[] =
 {
-  "$end", "error", "$undefined", "num", "identifier", "err", "'+'", "'-'",
-  "'*'", "'/'", "'^'", "'('", "')'", "$accept", "input", "e", YY_NULLPTR
+  "$end", "error", "$undefined", "number", "identifier", "err", "'+'",
+  "'-'", "'*'", "'/'", "'^'", "'('", "')'", "$accept", "input", "e", YY_NULLPTR
 };
 #endif
 
@@ -1210,8 +1210,8 @@ yyreduce:
   switch (yyn)
     {
         case 4:
-#line 9 "ari_exp.y" /* yacc.c:1646  */
-    {flag=1;}
+#line 9 "arithmatic.y" /* yacc.c:1646  */
+    {f=1;}
 #line 1216 "y.tab.c" /* yacc.c:1646  */
     break;
 
@@ -1444,20 +1444,20 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 20 "ari_exp.y" /* yacc.c:1906  */
+#line 21 "arithmatic.y" /* yacc.c:1906  */
 
-int main(){
-	printf("Arithmetic expression?\n");
-	yyparse();
-	if(flag==0)
-		printf("Valid expression\n");
-	else
-		printf("Invalid expression\n");
-return 0;
+int main()
+{
+         printf("\nKey in arithmatic expression:\n\n");
+         yyparse();
+         if(f==0)
+            printf("Valid Expression \n");
+         else
+            printf("Invalid Expression\n");
+         return 0;
 }
 int yywrap()
 {
            return 1;
-}
-int yyerror(char *message) {printf("%s\n", message);}
-
+} 
+int yyerror(char *mes) {printf("%s\n", mes);}

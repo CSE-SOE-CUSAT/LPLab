@@ -379,7 +379,7 @@ struct yy_trans_info
 	};
 static yyconst flex_int16_t yy_accept[17] =
     {   0,
-        1,    1,    9,    7,    5,    6,    7,    1,    3,    5,
+        0,    0,    9,    7,    5,    6,    7,    1,    3,    5,
         2,    0,    1,    4,    3,    0
     } ;
 
@@ -460,9 +460,9 @@ int yy_flex_debug = 0;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 "ari_exp.l"
-#line 2 "ari_exp.l"
-#include<stdio.h>
+#line 1 "arithmatic.l"
+#line 2 "arithmatic.l"
+#include <stdio.h>
 #include "y.tab.h"
 #line 468 "lex.yy.c"
 
@@ -651,10 +651,9 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
     
-#line 10 "ari_exp.l"
+#line 9 "arithmatic.l"
 
-
-#line 658 "lex.yy.c"
+#line 657 "lex.yy.c"
 
 	if ( !(yy_init) )
 		{
@@ -739,46 +738,46 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 12 "ari_exp.l"
-{ return num;}
+#line 10 "arithmatic.l"
+{    return number;    }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 13 "ari_exp.l"
-{ return num; }
+#line 11 "arithmatic.l"
+{    return number;    }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 14 "ari_exp.l"
-{return identifier;}
+#line 12 "arithmatic.l"
+{    return identifier;    }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 15 "ari_exp.l"
-{return identifier; }
+#line 13 "arithmatic.l"
+{    return err; }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 16 "ari_exp.l"
+#line 14 "arithmatic.l"
 
 	YY_BREAK
 case 6:
 /* rule 6 can match eol */
 YY_RULE_SETUP
-#line 17 "ari_exp.l"
-{return 0; }
+#line 15 "arithmatic.l"
+{    return(0); }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 18 "ari_exp.l"
-{ return (int) yytext[0]; }
+#line 16 "arithmatic.l"
+{    return (int) yytext[0];}
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 19 "ari_exp.l"
+#line 17 "arithmatic.l"
 ECHO;
 	YY_BREAK
-#line 782 "lex.yy.c"
+#line 781 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1776,8 +1775,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 19 "ari_exp.l"
-
+#line 17 "arithmatic.l"
 
 
 
