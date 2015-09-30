@@ -1,6 +1,3 @@
-//Tanmay Kumar Pandey
-//exp 2
-//12130083
 keyword "int"|"while"|"for"|"float"|"return"|"main"|"if"|"else"|"printf"|"break"|"double"|"long"|"char"|"include"|"scanf"|"switch"|"go"
 id [a-zA-Z][a-zA-Z0-9]*
 digit [0-9]+

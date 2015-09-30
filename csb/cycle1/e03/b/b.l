@@ -1,6 +1,3 @@
-//Tanmay Kumar Pandey
-//exp 3.b
-//12130083
 digit1[0]
 digit2[1]
 %{
