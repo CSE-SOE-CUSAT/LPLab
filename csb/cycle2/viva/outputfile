@@ -1,0 +1,6 @@
+ int   a ;
+ 
+ 
+ while ( a ) {
+ b = c + d ;
+ } 

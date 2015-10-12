@@ -1,0 +1,6 @@
+int a;
+//Tom is a comment
+/* abc is also a comment*/
+while(a){
+b=c+d;
+}
