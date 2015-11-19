@@ -13,7 +13,7 @@ If output file name is not provided, the default output file is named a.out
 
 Compiling Yacc programs
 
-lex <file.l>
 yacc -d <file.y>
-gcc lex.yy.c y.tab.h -ll -o <output>
+lex <file.l>
+gcc lex.yy.c y.tab.c -ll -o <output>
 ./output
