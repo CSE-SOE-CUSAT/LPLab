@@ -7,9 +7,9 @@ int main(int argc, char* argv[])
      char *str=argv[1];
      strcpy(input,"abcabcabcabc"); 
      strcpy(inpst,"PPPQQQRRRSSS"); //input states
-     strcpy(outst,"QPPQRPQASQPP"); //output states
+     strcpy(outst,"QPPQRPQPSQPP"); //output states
      printf("\nInput string is:%s \n",str);
-     
+	
      while(*str!='\0')
      {   // printf("%c",*str);
           for(j=0;j<12;j++){
@@ -22,7 +22,8 @@ int main(int argc, char* argv[])
           state='F'; //false flag
           break;
         }
-        i++;str++;
+//        i++;
+        str++;
      }
      if(state=='S')
           printf("\nValid String \n");
