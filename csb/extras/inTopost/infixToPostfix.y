@@ -5,11 +5,11 @@
 int f=0;
 %}
 %token id err
-%left '-' '+'
+%left '-' '+' 
 %left '*' '/'
 %%
 input: /* empty string */
-     | input exp {}
+     | input exp {} 
      | error {f=1;}
    ;
 exp: exp '+' exp { printf("+"); }
